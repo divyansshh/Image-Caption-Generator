@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Caption</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Image-Caption-Generator</h1>
+        <p class="slogan">AI image caption generator</p>
+        <div class="container_1">
+            <h1 class="title">File Upload</h1>
+            
+            <!-- Form for file upload -->
+            <form method="post" enctype="multipart/form-data" action="{% url 'result' %}">
+                {% csrf_token %}
+                
+                <!-- Input area for file upload -->
+                <label for="file" class="file-upload">
+                    <input type="file" id="file" name="file">
+                    <p>Click here to upload a file</p>
+                </label>
+                
+                <!-- Submit button -->
+                <button type="submit" class="button">Upload File</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

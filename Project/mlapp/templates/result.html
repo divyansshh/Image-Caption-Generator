@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style_r.css' %}">
+</head>
+<body>
+    <h1>Result</h1>
+        {% if caption_data %}
+        <div class="result">
+            <img src="{% static 'Images/' %}{{ context.image_name }}" alt="Uploaded Image" width="300" height="300">
+            <p>Uploaded file name: <b> {{ context.image_name }} </b></p>
+            <b><p>Predicted Caption: {{ caption_data }}</p></b>
+            <button class="button"><a href="{% url 'delete_file' %}">Upload another image</a></button>
+
+        </div>
+    {% else %}
+        <p>No result available</p>
+    {% endif %}
+</body>
+</html>
